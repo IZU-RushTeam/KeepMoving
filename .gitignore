@@ -1,7 +1,17 @@
+<<<<<<< HEAD
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+=======
+# Created by https://www.toptal.com/developers/gitignore/api/unity
+# Edit at https://www.toptal.com/developers/gitignore?templates=unity
+
+### Unity ###
+# This .gitignore file should be placed at the root of your Unity project directory
+#
+# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
+>>>>>>> 0164004 (Karakter ve karakter hareketleri eklendi -> Fatih , Yasir - Animasyonlar ve oyunda kullanılacak ogeler eklendi -> Kerem , Yusuf)
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -70,3 +80,8 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+<<<<<<< HEAD
+=======
+
+# End of https://www.toptal.com/developers/gitignore/api/unity
+>>>>>>> 0164004 (Karakter ve karakter hareketleri eklendi -> Fatih , Yasir - Animasyonlar ve oyunda kullanılacak ogeler eklendi -> Kerem , Yusuf)
