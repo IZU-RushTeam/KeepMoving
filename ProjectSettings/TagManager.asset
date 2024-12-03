@@ -4,16 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Obstacle
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
+  - Enemy
   - Ground
-  - Wall
   - 
   - 
   - 
@@ -39,9 +39,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 982290011
+  - name: cevre
+    uniqueID: 3176302279
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background1
+    uniqueID: 2423297045
+    locked: 0
+  - name: Background2
+    uniqueID: 835597993
+    locked: 0
+  - name: Background3
+    uniqueID: 2742211985
+    locked: 0
+  - name: Background4
+    uniqueID: 711724473
     locked: 0
