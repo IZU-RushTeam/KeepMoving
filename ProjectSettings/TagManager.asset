@@ -5,15 +5,19 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - Fire
+  - ates
+  - Skeleton
+  - Dungeon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - Ground
-  - Wall
+  - Platform
+  - 
   - 
   - 
   - 
@@ -39,9 +43,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 982290011
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: sky
+    uniqueID: 1822198671
+    locked: 0
+  - name: mount2
+    uniqueID: 1420855487
+    locked: 0
+  - name: mount
+    uniqueID: 2035961433
+    locked: 0
+  - name: Player
+    uniqueID: 3052991133
+    locked: 0
+  - name: New Layer 5
+    uniqueID: 589960835
+    locked: 0
+  - name: platform
+    uniqueID: 916481277
     locked: 0

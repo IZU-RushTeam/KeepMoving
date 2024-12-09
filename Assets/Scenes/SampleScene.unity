@@ -542,7 +542,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 982290011
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -21180,11 +21180,11 @@ MonoBehaviour:
   groundCheck: {fileID: 1723001977}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   wallCheck: {fileID: 1362369910}
   wallLayer:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 0
   tr: {fileID: 1330373395}
 --- !u!50 &1330373391
 Rigidbody2D:
