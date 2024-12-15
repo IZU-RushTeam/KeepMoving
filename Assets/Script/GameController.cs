@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void Die()
+  public  void Die()
     {
         Respawn();
     }

@@ -2,21 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonEnemy : MonoBehaviour
+public class NewSkeletonEnemy : MonoBehaviour
 {
     public Transform pointA;
-    public Transform pointB; 
-    public float speed = 2f; 
-    public float detectionRange = 2f; 
-    public Animator animator; 
-    private Transform targetPoint; 
-    private Transform player; 
-    private bool isAttacking = false; 
+    public Transform pointB;
+    public float speed = 2f;
+    public float detectionRange = 2f;
+    private Animator animator; 
+    private Transform targetPoint;
+    private Transform player;
+    private bool isAttacking = false;
 
     void Start()
     {
         targetPoint = pointA; 
         player = GameObject.FindWithTag("Player").transform; 
+
+       
+        animator = GetComponent<Animator>();
+
+        if (animator == null)
+        {
+            Debug.LogError("Animator bileþeni bu GameObject üzerinde bulunamadý!");
+        }
     }
 
     void Update()
@@ -49,44 +57,32 @@ public class SkeletonEnemy : MonoBehaviour
 
         if (Vector2.Distance(transform.position, targetPoint.position) < 0.1f)
         {
-            targetPoint = targetPoint == pointA ? pointB : pointA; 
+            targetPoint = targetPoint == pointA ? pointB : pointA;
             Flip(); 
         }
     }
 
-    async void AttackPlayer()
+    void AttackPlayer()
     {
         isAttacking = true;
-        animator.SetBool("isWalking", false); 
+        animator.SetBool("isWalking", false);
         animator.SetTrigger("attack");
-
         Debug.Log("Saldýrý baþladý, animasyon bitimi bekleniyor.");
 
-        while (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
-               animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-        {
-            await System.Threading.Tasks.Task.Yield();
-        }
-
-        Debug.Log("Animasyon tamamlandý, oyuncuya zarar veriliyor.");
-
-        if (Vector2.Distance(transform.position, player.position) <= detectionRange)
-        {
-            player.GetComponent<PlayerRespawn>().Respawn(); 
-        }
-
-        AttackComplete(); 
+        StartCoroutine(WaitForAttackAnimationAndDie());
     }
 
-
-    public void DealDamage() 
+    IEnumerator WaitForAttackAnimationAndDie()
     {
-        Debug.Log("Zarar verme fonksiyonu çalýþtý.");
-        if (Vector2.Distance(transform.position, player.position) <= detectionRange)
-        {
-            Debug.Log("Oyuncuya zarar verildi.");
-            player.GetComponent<PlayerRespawn>().Respawn(); 
-        }
+        yield return new WaitUntil(() =>
+            animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
+            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f
+        );
+
+        Debug.Log("Saldýrý animasyonu tamamlandý, Die metodu çaðrýlýyor.");
+        player.GetComponent<GameController>().Die();
+
+        AttackComplete();
     }
 
     void Flip()
@@ -100,6 +96,7 @@ public class SkeletonEnemy : MonoBehaviour
 
         transform.localScale = localScale;
     }
+
     public void AttackComplete()
     {
         Debug.Log("Saldýrý tamamlandý, yürümeye dönülüyor.");
@@ -107,5 +104,4 @@ public class SkeletonEnemy : MonoBehaviour
         animator.ResetTrigger("attack");
         animator.SetBool("isWalking", true);
     }
-
 }

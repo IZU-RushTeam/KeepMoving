@@ -4,8 +4,8 @@ public class PlayerRespawn : MonoBehaviour
 {
     public void Respawn()
     {
-        Debug.Log("Respawn fonksiyonu çalýþtý!"); // Burada da bir debug mesajý ekledik
-        transform.position = startPos; // Baþlangýç noktasýna taþý
+        Debug.Log("Respawn fonksiyonu çalýþtý!"); 
+        transform.position = startPos; 
         Debug.Log("Oyuncu yeniden doðdu!");
     }
     private Vector2 startPos;
@@ -17,19 +17,19 @@ public class PlayerRespawn : MonoBehaviour
 
     private void Start()
     {
-        startPos = transform.position; // Baþlangýç pozisyonunu kaydet
+        startPos = transform.position; 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Çarpýþma testi
         Debug.Log("Çarpýþma Algýlandý!");
-        Debug.Log("Çarpýþma Algýlandý! Çarpýþan Objelerin Tag'i: " + collision.tag); // Tag'i kontrol et
+        Debug.Log("Çarpýþma Algýlandý! Çarpýþan Objelerin Tag'i: " + collision.tag); 
 
         if (collision.CompareTag("ates"))
         {
             Debug.Log("Ateþe deðildi! Oyuncu öldü.");
-            Respawn(); // Respawn fonksiyonunu çaðýr
+            Respawn(); 
         }
         Debug.Log("deneme");
 
