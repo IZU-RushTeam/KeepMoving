@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Obstacle
+  - Fire
+  - ates
+  - Skeleton
+  - Dungeon
   layers:
   - Default
   - TransparentFX
@@ -38,7 +43,7 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
+  - name: 
     uniqueID: 982290011
     locked: 0
   - name: Default
