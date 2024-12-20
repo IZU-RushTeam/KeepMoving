@@ -33,8 +33,9 @@ public class NewEvilWizardController : MonoBehaviour
         }
         else
         {
+            evilWizardAnimator.SetBool("isMoving", false);
             evilWizardAnimator.SetTrigger("attack_evilWizard");
-            RespawnPlayer();
+            
         }
     }
 
@@ -70,6 +71,7 @@ public class NewEvilWizardController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
+            evilWizardAnimator.SetBool("isMoving", false);
         }
     }
 

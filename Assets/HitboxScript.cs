@@ -18,7 +18,16 @@ public class HitboxScript : MonoBehaviour
         if (gameController != null)
         {
             print("entered");
+            Deactivate();
             gameController.Die();
+            
         }
     }
+
+    public void Deactivate()
+    {
+        print("deaktif");
+        bc2D.enabled = false;
+    }
+
 }

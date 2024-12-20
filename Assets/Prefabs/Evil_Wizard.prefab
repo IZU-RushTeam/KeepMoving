@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2602037365077007525}
   - component: {fileID: 6590760805671307885}
   - component: {fileID: 5411221425239861381}
-  - component: {fileID: 523320633021337520}
+  - component: {fileID: 5297044476558513353}
   m_Layer: 0
   m_Name: Evil_Wizard
   m_TagString: Untagged
@@ -153,7 +153,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 3.4375}
   m_EdgeRadius: 0
---- !u!114 &523320633021337520
+--- !u!114 &5297044476558513353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5220897047985545999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec2451c87b01b34459f01ad8b658606f, type: 3}
+  m_Script: {fileID: 11500000, guid: eda2c47d6946dc849bef77a08ec46667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pointA: {fileID: 0}

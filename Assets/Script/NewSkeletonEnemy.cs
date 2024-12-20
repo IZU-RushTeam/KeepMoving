@@ -64,18 +64,19 @@ public class NewSkeletonEnemy : MonoBehaviour
 
     void AttackPlayer()
     {
-        isAttacking = true;
         animator.SetBool("isWalking", false);
+        isAttacking = true;
+        
         animator.SetTrigger("attack");
         Debug.Log("Saldýrý baþladý, animasyon bitimi bekleniyor.");
-
-        StartCoroutine(WaitForAttackAnimationAndDie());
+      //  AttackComplete();
+        // StartCoroutine(WaitForAttackAnimationAndDie());
     }
 
     IEnumerator WaitForAttackAnimationAndDie()
     {
         yield return new WaitUntil(() =>
-            animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
+            animator.GetCurrentAnimatorStateInfo(0).IsName("attack") &&
             animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f
         );
 

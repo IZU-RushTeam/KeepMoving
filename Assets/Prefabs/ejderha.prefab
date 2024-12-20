@@ -148,10 +148,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3685495786971434194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21b06b27df2dc644eb371c8e7f9830cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 646dafa8798edb7499107076b0894275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballPrefab: {fileID: 4805496887007723757, guid: 70745cde8c9c7314aa58dfa66aec869d, type: 3}
-  firePoint: {fileID: 1746457638134205274}
-  fireInterval: 1
-  fireSpeed: -5
+  fireballPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  fireInterval: 0.5
+  fireSpeed: 5
+  fireballLifetime: 2
+  fireDuration: 5
+  waitDuration: 5
