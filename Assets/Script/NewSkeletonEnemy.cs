@@ -12,8 +12,8 @@ public class NewSkeletonEnemy : MonoBehaviour
     private Transform targetPoint;
     private Transform player;
     private bool isAttacking = false;
-    [SerializeField] HitboxScript hitboxScript;
-    void Start() 
+
+    void Start()
     {
         targetPoint = pointA; 
         player = GameObject.FindWithTag("Player").transform; 
@@ -99,7 +99,6 @@ public class NewSkeletonEnemy : MonoBehaviour
 
     public void AttackComplete()
     {
-        hitboxScript.Activate();
         Debug.Log("Saldýrý tamamlandý, yürümeye dönülüyor.");
         isAttacking = false;
         animator.ResetTrigger("attack");

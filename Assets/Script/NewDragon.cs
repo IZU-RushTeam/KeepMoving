@@ -3,36 +3,29 @@ using System.Collections;
 
 public class NewDragonFire : MonoBehaviour
 {
-    public GameObject fireballPrefab;
-    public Transform firePoint;
-    public float fireInterval = 0.5f;   
-    public float fireSpeed = 5f;
-    public float fireballLifetime = 2f;
-    public float fireDuration = 5f;    
-    public float waitDuration = 5f;    
+    public GameObject fireballPrefab;  
+    public Transform firePoint;        
+    public float fireInterval = 3f;    
+    public float fireSpeed = 5f;       
 
     private Animator animator;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        StartCoroutine(FireRoutine());
+        animator = GetComponent<Animator>();  
+        StartCoroutine(FireAtIntervals());
     }
 
-    private IEnumerator FireRoutine()
+    
+    private IEnumerator FireAtIntervals()
     {
-        while (true)
+        while (true) 
         {
-            float elapsedFireTime = 0f;
-            while (elapsedFireTime < fireDuration)
-            {
-                animator.SetTrigger("Attack");
-                ShootFireball();
-                elapsedFireTime += fireInterval;
-                yield return new WaitForSeconds(fireInterval);
-            }
+            animator.SetTrigger("Attack");  
 
-            yield return new WaitForSeconds(waitDuration);
+            ShootFireball();
+
+            yield return new WaitForSeconds(fireInterval);
         }
     }
 
@@ -43,10 +36,11 @@ public class NewDragonFire : MonoBehaviour
         Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            Vector2 fireDirection = firePoint.right.normalized;
-            rb.velocity = fireDirection * fireSpeed;
+            Vector2 fireDirection = firePoint.right.normalized; 
+            rb.velocity = fireDirection * fireSpeed;  
         }
-
-        Destroy(fireball, fireballLifetime);
     }
+
+
+   
 }
