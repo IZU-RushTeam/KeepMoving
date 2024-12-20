@@ -750,7 +750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 781799343}
   SFXSource: {fileID: 2097274694}
-  background: {fileID: 8300000, guid: 3c174e3eac841eb48a530da35c7dd121, type: 3}
+  background: {fileID: 8300000, guid: 6f0e659258d0dfe43966831a28a1e876, type: 3}
   wall: {fileID: 0}
   dash: {fileID: 0}
   jump: {fileID: 0}
@@ -1374,7 +1374,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -78639,6 +78639,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1783827008}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1254349258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1254349260}
+  - component: {fileID: 1254349259}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1254349259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254349258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed6336f62b292243abe5f76feba203c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1254349260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254349258}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 124.7525, y: 27.72828, z: 0.058018252}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1268741561
 GameObject:
   m_ObjectHideFlags: 0
@@ -79213,7 +79257,7 @@ Transform:
   m_GameObject: {fileID: 1330373389}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.39, z: 0}
+  m_LocalPosition: {x: 137, y: 33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -81471,6 +81515,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1681986510}
   - component: {fileID: 1681986509}
+  - component: {fileID: 1681986511}
+  - component: {fileID: 1681986512}
   m_Layer: 0
   m_Name: lamp
   m_TagString: Untagged
@@ -81545,6 +81591,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1681986511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681986508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c8f02bdf016564080035675d3addf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1681986512
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681986508}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.23, y: 0.57}
+    newSize: {x: 0.23, y: 0.57}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.23, y: 0.57}
+  m_EdgeRadius: 0
 --- !u!1 &1723001976
 GameObject:
   m_ObjectHideFlags: 0
@@ -82834,5 +82937,6 @@ SceneRoots:
   - {fileID: 1297043592}
   - {fileID: 1373171384}
   - {fileID: 1868678933}
+  - {fileID: 1254349260}
   - {fileID: 1268741566}
   - {fileID: 1681986510}
