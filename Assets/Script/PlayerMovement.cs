@@ -35,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private TrailRenderer tr;
 
+    public bool isOnPlatform;
+    public Rigidbody2D PlatformRb;
+
     private void Update()
     {
         if (isDashing)
@@ -90,6 +93,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Vector2 platformVelocity = Vector2.zero;
+
+        if (isOnPlatform && PlatformRb != null)
+        {
+            platformVelocity = PlatformRb.velocity;
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y) + platformVelocity;
+        }
+
+
         animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
         animator.SetFloat("yVelocity", rb.velocity.y);
         if (isDashing)
@@ -177,6 +189,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        animator.SetBool("Dash", true);
         canDash = false;
         isDashing = true;
         float originalGravity = rb.gravityScale;
@@ -187,6 +200,7 @@ public class PlayerMovement : MonoBehaviour
         tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
+        animator.SetBool("Dash", false);
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
