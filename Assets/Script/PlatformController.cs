@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlatformController : MonoBehaviour
 {
+
    public Transform posA , posB;
     public int Speed;
     Vector2 targetPos;
@@ -29,13 +30,28 @@ public class PlatformController : MonoBehaviour
         {
             collision.transform.SetParent(this.transform);
         }
+
+        PlayerMovement playerMovement = collision.GetComponent<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            playerMovement.isOnPlatform = true;
+            playerMovement.PlatformRb = this.GetComponent<Rigidbody2D>();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             collision.transform.SetParent(null);
+
+            // Oyuncunun PlayerMovement scriptindeki platform bilgilerini sýfýrla
+            PlayerMovement playerMovement = collision.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.isOnPlatform = false;
+                playerMovement.PlatformRb = null;
+            }
         }
     }
     private void OnDrawGizmos()

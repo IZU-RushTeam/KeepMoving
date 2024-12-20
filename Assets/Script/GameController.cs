@@ -19,12 +19,12 @@ public class GameController : MonoBehaviour
         }
     }
 
-  public  void Die()
+    public void Die()
     {
         Respawn();
     }
 
-    void Respawn()
+    public void Respawn()
     {
         transform.position = startPos;
     }
