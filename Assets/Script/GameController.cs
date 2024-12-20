@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //|| collision.CompareTag("Skeleton")
         if (collision.CompareTag("Obstacle"))
         {
             Die();
