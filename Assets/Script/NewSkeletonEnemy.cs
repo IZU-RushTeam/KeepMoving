@@ -23,7 +23,7 @@ public class NewSkeletonEnemy : MonoBehaviour
 
         if (animator == null)
         {
-            Debug.LogError("Animator bileþeni bu GameObject üzerinde bulunamadý!");
+            Debug.LogError("Animator bileï¿½eni bu GameObject ï¿½zerinde bulunamadï¿½!");
         }
     }
 
@@ -31,7 +31,7 @@ public class NewSkeletonEnemy : MonoBehaviour
     {
         if (isAttacking)
         {
-            Debug.Log("Saldýrý modunda, hareket durduruldu.");
+            Debug.Log("Saldï¿½rï¿½ modunda, hareket durduruldu.");
             return;
         }
 
@@ -39,12 +39,12 @@ public class NewSkeletonEnemy : MonoBehaviour
 
         if (distanceToPlayer <= detectionRange)
         {
-            Debug.Log("Oyuncuyu algýladý, saldýrýya geçiliyor.");
+            Debug.Log("Oyuncuyu algï¿½ladï¿½, saldï¿½rï¿½ya geï¿½iliyor.");
             AttackPlayer();
         }
         else
         {
-            Debug.Log("Oyuncu algýlanmadý, gezinmeye devam ediliyor.");
+            Debug.Log("Oyuncu algï¿½lanmadï¿½, gezinmeye devam ediliyor.");
             Patrol();
         }
     }
@@ -70,14 +70,14 @@ public class NewSkeletonEnemy : MonoBehaviour
 
         isAttacking = true;
 
-        Debug.Log("Saldýrý baþladý, animasyon bitimi bekleniyor.");
+        Debug.Log("Saldï¿½rï¿½ baï¿½ladï¿½, animasyon bitimi bekleniyor.");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Oyuncu ile çarpýþma tespit edildi, saldýrý baþlatýlýyor.");
+            Debug.Log("Oyuncu ile ï¿½arpï¿½ï¿½ma tespit edildi, saldï¿½rï¿½ baï¿½latï¿½lï¿½yor.");
             AttackPlayer();
         }
     }
@@ -96,8 +96,7 @@ public class NewSkeletonEnemy : MonoBehaviour
 
     public void AttackComplete()
     {
-        hitboxScript.Activate();
-        Debug.Log("Saldýrý tamamlandý, yürümeye dönülüyor.");
+        Debug.Log("Saldï¿½rï¿½ tamamlandï¿½, yï¿½rï¿½meye dï¿½nï¿½lï¿½yor.");
         isAttacking = false;
         animator.ResetTrigger("attack");
         animator.SetBool("isWalking", true);
