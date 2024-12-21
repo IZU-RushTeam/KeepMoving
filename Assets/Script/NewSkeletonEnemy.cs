@@ -8,17 +8,17 @@ public class NewSkeletonEnemy : MonoBehaviour
     public Transform pointB;
     public float speed = 2f;
     public float detectionRange = 2f;
-    private Animator animator; 
+    private Animator animator;
     private Transform targetPoint;
     private Transform player;
     private bool isAttacking = false;
     [SerializeField] HitboxScript hitboxScript;
-    void Start() 
-    {
-        targetPoint = pointA; 
-        player = GameObject.FindWithTag("Player").transform; 
 
-       
+    void Start()
+    {
+        targetPoint = pointA;
+        player = GameObject.FindWithTag("Player").transform;
+
         animator = GetComponent<Animator>();
 
         if (animator == null)
@@ -31,8 +31,8 @@ public class NewSkeletonEnemy : MonoBehaviour
     {
         if (isAttacking)
         {
-            Debug.Log("Saldýrý modunda, hareket durduruldu."); 
-            return; 
+            Debug.Log("Saldýrý modunda, hareket durduruldu.");
+            return;
         }
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -51,39 +51,35 @@ public class NewSkeletonEnemy : MonoBehaviour
 
     void Patrol()
     {
-        animator.SetBool("isWalking", true); 
+        animator.SetBool("isWalking", true);
 
         transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, targetPoint.position) < 0.1f)
         {
             targetPoint = targetPoint == pointA ? pointB : pointA;
-            Flip(); 
+            Flip();
         }
     }
 
     void AttackPlayer()
     {
         animator.SetBool("isWalking", false);
-        isAttacking = true;
-        
+
         animator.SetTrigger("attack");
+
+        isAttacking = true;
+
         Debug.Log("Saldýrý baþladý, animasyon bitimi bekleniyor.");
-      //  AttackComplete();
-        // StartCoroutine(WaitForAttackAnimationAndDie());
     }
 
-    IEnumerator WaitForAttackAnimationAndDie()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        yield return new WaitUntil(() =>
-            animator.GetCurrentAnimatorStateInfo(0).IsName("attack") &&
-            animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f
-        );
-
-        Debug.Log("Saldýrý animasyonu tamamlandý, Die metodu çaðrýlýyor.");
-        player.GetComponent<GameController>().Die();
-
-        AttackComplete();
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("Oyuncu ile çarpýþma tespit edildi, saldýrý baþlatýlýyor.");
+            AttackPlayer();
+        }
     }
 
     void Flip()
@@ -91,9 +87,9 @@ public class NewSkeletonEnemy : MonoBehaviour
         Vector3 localScale = transform.localScale;
 
         if (transform.position.x < targetPoint.position.x)
-            localScale.x = Mathf.Abs(localScale.x); 
+            localScale.x = Mathf.Abs(localScale.x);
         else
-            localScale.x = -Mathf.Abs(localScale.x); 
+            localScale.x = -Mathf.Abs(localScale.x);
 
         transform.localScale = localScale;
     }

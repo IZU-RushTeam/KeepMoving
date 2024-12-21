@@ -31,12 +31,7 @@ public class NewEvilWizardController : MonoBehaviour
         {
             MoveBetweenPoints();
         }
-        else
-        {
-            evilWizardAnimator.SetBool("isMoving", false);
-            evilWizardAnimator.SetTrigger("attack_evilWizard");
-            
-        }
+       
     }
 
     void MoveBetweenPoints()
@@ -72,6 +67,7 @@ public class NewEvilWizardController : MonoBehaviour
         {
             isPlayerInRange = true;
             evilWizardAnimator.SetBool("isMoving", false);
+            evilWizardAnimator.SetTrigger("attack_evilWizard");
         }
     }
 
@@ -79,7 +75,10 @@ public class NewEvilWizardController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            evilWizardAnimator.SetBool("isMoving", true);
+
             isPlayerInRange = false;
+
         }
     }
 
