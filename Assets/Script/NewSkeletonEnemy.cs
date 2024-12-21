@@ -23,7 +23,7 @@ public class NewSkeletonEnemy : MonoBehaviour
 
         if (animator == null)
         {
-            Debug.LogError("Animator bile�eni bu GameObject �zerinde bulunamad�!");
+            Debug.LogError("Animator bile�eni bu GameObject üzerinde bulunamad�!");
         }
     }
 
@@ -31,7 +31,7 @@ public class NewSkeletonEnemy : MonoBehaviour
     {
         if (isAttacking)
         {
-            Debug.Log("Sald�r� modunda, hareket durduruldu.");
+            Debug.Log("Saldırı modunda, hareket durduruldu.");
             return;
         }
 
@@ -39,12 +39,12 @@ public class NewSkeletonEnemy : MonoBehaviour
 
         if (distanceToPlayer <= detectionRange)
         {
-            Debug.Log("Oyuncuyu alg�lad�, sald�r�ya ge�iliyor.");
+            Debug.Log("Oyuncuyu algıladı, saldırıya geçiliyor.");
             AttackPlayer();
         }
         else
         {
-            Debug.Log("Oyuncu alg�lanmad�, gezinmeye devam ediliyor.");
+            Debug.Log("Oyuncu algılanmadı, gezinmeye devam ediliyor.");
             Patrol();
         }
     }
@@ -70,14 +70,14 @@ public class NewSkeletonEnemy : MonoBehaviour
 
         isAttacking = true;
 
-        Debug.Log("Sald�r� ba�lad�, animasyon bitimi bekleniyor.");
+        Debug.Log("Saldırı başladı, animasyon bitimi bekleniyor.");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Oyuncu ile �arp��ma tespit edildi, sald�r� ba�lat�l�yor.");
+            Debug.Log("Oyuncu ile çarpışma tespit edildi, saldırı baslatılıyor.");
             AttackPlayer();
         }
     }
@@ -96,7 +96,8 @@ public class NewSkeletonEnemy : MonoBehaviour
 
     public void AttackComplete()
     {
-        Debug.Log("Sald�r� tamamland�, y�r�meye d�n�l�yor.");
+        hitboxScript.Activate();
+        Debug.Log("Saldırı tamamlandı, yürümeye dönülüyor.");
         isAttacking = false;
         animator.ResetTrigger("attack");
         animator.SetBool("isWalking", true);
