@@ -19,7 +19,6 @@ public class NewEvilWizardController : MonoBehaviour
 
         if (evilWizardAnimator == null)
         {
-            Debug.LogError("EvilWizard üzerinde bir Animator bileþeni bulunamadý!");
         }
 
         currentTarget = pointA;

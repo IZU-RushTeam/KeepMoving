@@ -23,7 +23,6 @@ public class NewSkeletonEnemy : MonoBehaviour
 
         if (animator == null)
         {
-            Debug.LogError("Animator bile�eni bu GameObject üzerinde bulunamad�!");
         }
     }
 
@@ -31,7 +30,6 @@ public class NewSkeletonEnemy : MonoBehaviour
     {
         if (isAttacking)
         {
-            Debug.Log("Saldırı modunda, hareket durduruldu.");
             return;
         }
 
@@ -39,12 +37,10 @@ public class NewSkeletonEnemy : MonoBehaviour
 
         if (distanceToPlayer <= detectionRange)
         {
-            Debug.Log("Oyuncuyu algıladı, saldırıya geçiliyor.");
             AttackPlayer();
         }
         else
         {
-            Debug.Log("Oyuncu algılanmadı, gezinmeye devam ediliyor.");
             Patrol();
         }
     }
@@ -70,14 +66,12 @@ public class NewSkeletonEnemy : MonoBehaviour
 
         isAttacking = true;
 
-        Debug.Log("Saldırı başladı, animasyon bitimi bekleniyor.");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Oyuncu ile çarpışma tespit edildi, saldırı baslatılıyor.");
             AttackPlayer();
         }
     }
@@ -97,7 +91,6 @@ public class NewSkeletonEnemy : MonoBehaviour
     public void AttackComplete()
     {
         hitboxScript.Activate();
-        Debug.Log("Saldırı tamamlandı, yürümeye dönülüyor.");
         isAttacking = false;
         animator.ResetTrigger("attack");
         animator.SetBool("isWalking", true);
